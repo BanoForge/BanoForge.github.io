@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Henri Bano, Daten und KI-Werkzeuge</title>
+<meta name="description" content="Henri Bano, Ingenieur in Berlin: Datenanalyse mit Python, Claude Code sicher einrichten, Unterstützung bei EASA- und SMS-Dokumentation.">
+<style>
+@font-face { font-family: "B612"; src: url("fonts/B612-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "B612"; src: url("fonts/B612-Bold.ttf") format("truetype"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "B612 Mono"; src: url("fonts/B612Mono-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+
+:root {
+  --paper: #f3f6f8;      /* chart paper, cool */
+  --ink: #1a2a3a;        /* navy text */
+  --muted: #4f6273;
+  --rule: #c5d1db;
+  --magenta: #a3306b;    /* aeronautical chart magenta */
+  --blue: #2f6597;
+  --focus: #2f6597;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0f1821; --ink: #e3eaf0; --muted: #9fb0bf; --rule: #2a3b4b;
+    --magenta: #e07aae; --blue: #8cb7e0; --focus: #8cb7e0;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0f1821; --ink: #e3eaf0; --muted: #9fb0bf; --rule: #2a3b4b;
+  --magenta: #e07aae; --blue: #8cb7e0; --focus: #8cb7e0;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font-family: "B612", system-ui, sans-serif; font-size: 1.0625rem; line-height: 1.6;
+}
+main { max-width: 44rem; margin: 0 auto; padding: 4rem 1rem 3rem; }
+a { color: var(--blue); text-underline-offset: 0.18em; }
+a:hover { color: var(--magenta); }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+
+h1 { font-size: 2.25rem; line-height: 1.15; margin: 0 0 0.5rem; letter-spacing: -0.01em; }
+h2 { font-size: 1.3rem; margin: 3.5rem 0 1rem; }
+p { margin: 0 0 1rem; max-width: 38rem; }
+.lead { font-size: 1.2rem; color: var(--muted); margin-bottom: 2.5rem; }
+
+/* The one loud element: a cockpit-style checklist with dot leaders. */
+.checklist {
+  font-family: "B612 Mono", ui-monospace, monospace; font-size: 0.98rem;
+  list-style: none; margin: 0; padding: 1.25rem 1.25rem 1rem;
+  border: 2px solid var(--ink); border-left: 10px solid var(--magenta);
+}
+.checklist li { display: flex; align-items: baseline; gap: 0.5rem; padding: 0.3rem 0; }
+.checklist .item { flex: none; }
+.checklist .leader { flex: 1; border-bottom: 2px dotted var(--muted); transform: translateY(-0.3em); min-width: 1.5rem; }
+.checklist .resp { flex: none; color: var(--magenta); font-weight: 400; }
+.checklist-caption { font-size: 0.9rem; color: var(--muted); margin-top: 0.6rem; }
+
+.offer { border-top: 1px solid var(--rule); padding: 1.25rem 0 0.5rem; }
+.offer:last-of-type { border-bottom: 1px solid var(--rule); }
+.offer-head { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; align-items: baseline; }
+.offer h3 { font-size: 1.1rem; margin: 0; }
+.price { color: var(--magenta); font-weight: 700; white-space: nowrap; }
+.offer p { color: var(--ink); margin-top: 0.4rem; }
+.offer ul { margin: 0 0 1rem; padding-left: 1.2rem; }
+.offer li { margin: 0.2rem 0; }
+
+.work { margin: 0 0 1.5rem; }
+.work h3 { font-size: 1.05rem; margin: 0 0 0.25rem; }
+.work p { margin: 0; }
+
+.contact {
+  display: inline-block; margin-top: 0.5rem; padding: 0.8rem 1.4rem;
+  background: var(--ink); color: var(--paper); text-decoration: none; font-weight: 700;
+}
+.contact:hover { background: var(--magenta); color: #fff; }
+
+footer { max-width: 44rem; margin: 0 auto; padding: 2rem 1rem 3rem; border-top: 1px solid var(--rule); font-size: 0.9rem; color: var(--muted); }
+footer h2 { font-size: 1rem; margin: 1.5rem 0 0.5rem; color: var(--ink); }
+footer p { max-width: none; }
+
+@media (max-width: 30rem) {
+  h1 { font-size: 1.8rem; }
+  main { padding-top: 2.5rem; }
+  .checklist { font-size: 0.85rem; padding: 1rem 0.75rem; }
+}
+</style>
+</head>
+<body>
+<main>
+  <h1>Henri Bano</h1>
+  <p class="lead">Ingenieur in Berlin. Ich bringe Daten in Ordnung, richte KI-Werkzeuge sicher ein und unterstütze kleine Luftfahrtbetriebe bei ihrer Dokumentation.</p>
+
+  <ol class="checklist" aria-label="So arbeite ich">
+    <li><span class="item">Annahmen</span><span class="leader" aria-hidden="true"></span><span class="resp">aufgeschrieben</span></li>
+    <li><span class="item">Daten</span><span class="leader" aria-hidden="true"></span><span class="resp">auf Lücken geprüft</span></li>
+    <li><span class="item">Ergebnis</span><span class="leader" aria-hidden="true"></span><span class="resp">an neuen Daten getestet</span></li>
+    <li><span class="item">Änderungen</span><span class="leader" aria-hidden="true"></span><span class="resp">rückgängig machbar</span></li>
+    <li><span class="item">Übergabe</span><span class="leader" aria-hidden="true"></span><span class="resp">mit Anleitung</span></li>
+  </ol>
+  <p class="checklist-caption">Wie eine Checkliste im Cockpit: Erst wenn jeder Punkt bestätigt ist, gilt eine Arbeit als fertig.</p>
+
+  <h2 id="angebot">Was ich anbiete</h2>
+
+  <section class="offer" aria-labelledby="o1">
+    <div class="offer-head"><h3 id="o1">Claude Code sicher einrichten</h3><span class="price">ab 149 EUR</span></div>
+    <p>Für Einzelpersonen, Büros und Studierende, die einen KI-Assistenten in ihren eigenen Dateien nutzen wollen, ohne sie zu riskieren.</p>
+    <ul>
+      <li>Sicherer Start, 90 Minuten: 149 EUR, für Studierende 79 EUR</li>
+      <li>Projekt-Setup für bis zu drei Projekte: 449 EUR</li>
+      <li>Betreuung: 149 EUR im Monat, monatlich kündbar</li>
+    </ul>
+  </section>
+
+  <section class="offer" aria-labelledby="o2">
+    <div class="offer-head"><h3 id="o2">Datenanalyse mit Python</h3><span class="price">60 EUR pro Stunde</span></div>
+    <p>Unübersichtliche Tabellen aufbereiten, ihre Qualität prüfen, Auswertungen und Vorhersagemodelle bauen, die an Daten getestet werden, die sie nie gesehen haben. Mit vereinbarter Obergrenze an Stunden.</p>
+  </section>
+
+  <section class="offer" aria-labelledby="o3">
+    <div class="offer-head"><h3 id="o3">Unterstützung bei EASA- und SMS-Dokumentation</h3><span class="price">60 EUR pro Stunde</span></div>
+    <p>Für Flugschulen, Vereine, kleine Hersteller und Instandhaltungsbetriebe: Checklisten, Verfahrensanweisungen, Risikoanalysen und Nachweise nach Part 21 oder ADR (VO (EU) 139/2014). Freigabe und fachliche Verantwortung bleiben bei Ihren verantwortlichen Personen.</p>
+  </section>
+
+  <h2 id="arbeiten">Arbeitsproben</h2>
+
+  <div class="work">
+    <h3><a href="https://github.com/BlendiFevziu/claude-undo">claude-undo</a></h3>
+    <p>Ein Rückgängig für alle Dateien, die Claude Code ändert, auch in Ordnern ohne Git und auch bei Shell-Befehlen wie rm oder sed -i. Open Source, 39 Tests, geprüft unter Linux und macOS.</p>
+  </div>
+  <div class="work">
+    <h3><a href="https://github.com/BlendiFevziu/prc2026-taxi-out-adsb">Rollzeiten mit ADS-B vorhersagen</a></h3>
+    <p>Aus der PRC Data Challenge 2026 von EUROCONTROL und OpenSky Network: Rollzeiten für 670.790 Abflüge an zehn europäischen Flughäfen. Ein Korrektur-Schritt auf öffentlichen ADS-B-Spuren senkte den mittleren Fehler auf zurückgehaltenen Monaten um 15 bis 30 Sekunden.</p>
+  </div>
+
+  <h2 id="ueber-mich">Über mich</h2>
+  <p>B.Eng. in Luftfahrttechnik und Luftfahrtmanagement an der TH Wildau, dort jetzt im Master. Praxis in Flugplatzzulassung, Qualitäts- und Sicherheitsmanagement bei einem Luftfahrzeughersteller und in der Aufbereitung operativer Luftfahrtdaten. Seit 2018 in Berlin. Ich arbeite auf Deutsch, Englisch und Albanisch.</p>
+  <p>Verfügbar ab Dezember 2026, etwa zehn Stunden pro Woche, remote oder in Berlin.</p>
+
+  <h2 id="kontakt">Kontakt</h2>
+  <p>Schreiben Sie mir kurz, worum es geht. Sie bekommen innerhalb von zwei Werktagen eine Antwort mit einem festen Preis oder einer Obergrenze.</p>
+  <a class="contact" href="mailto:banohenri@gmail.com?subject=Anfrage%20%C3%BCber%20Ihre%20Website">E-Mail schreiben</a>
+</main>
+
+<footer>
+  <h2 id="impressum">Impressum</h2>
+  <p>Angaben gemäß § 5 DDG<br>Henri Bano<br>Martin-Opitz-Straße 17, Wohnung 22<br>13357 Berlin<br>E-Mail: banohenri@gmail.com</p>
+  <p>Kleinunternehmer gemäß § 19 UStG, daher keine Umsatzsteuer-Identifikationsnummer.</p>
+
+  <h2 id="datenschutz">Datenschutz</h2>
+  <p>Diese Seite setzt keine Cookies, lädt keine Inhalte von Dritten und enthält kein Tracking. Die Schriften liegen auf diesem Server. Die Seite wird von GitHub Pages (GitHub, Inc., USA) ausgeliefert; dabei verarbeitet GitHub technisch notwendige Daten wie Ihre IP-Adresse. Wenn Sie mir eine E-Mail schreiben, verwende ich Ihre Angaben nur, um Ihre Anfrage zu beantworten. Verantwortlich: Henri Bano, Anschrift siehe Impressum. Sie haben das Recht auf Auskunft, Berichtigung und Löschung Ihrer Daten sowie auf Beschwerde bei einer Datenschutzaufsichtsbehörde.</p>
+  <p>Schrift: B612 von Airbus und den B612 Project Authors, SIL Open Font License 1.1.</p>
+</footer>
+</body>
+</html>
